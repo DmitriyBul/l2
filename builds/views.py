@@ -29,7 +29,7 @@ class BbCreateView(CreateView):
     form_class = BbForm
     success_url = '/builds/'
 
-    def get_context_data(self, **kwargs):
-        context = get_context_data(**kwargs).super()
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
         return context
