@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type"
+        content="text/html; charset=utf-8">
+        <title>Главная - Добавление билда</title>
+    </head>
+    <body>
+        <h1>Билды</h1>
+        <div>
+            <a href="{% url 'index' %}">Главная</a>
+            {% for rubric in rubrics %}
+            <a href="/builds/{{ rubric.pk }}/"> {{ rubric.name }}</a>
+            {% endfor %}
+        </div>
+        {% for bb in bbs %}
+        <div>
+            <h2>{{ bb.title }} </h2>
+            <p> {{ bb.char1 }} </p>
+            <p> {{ bb.items1 }} </p>
+            <p> {{ bb.char2 }} </p>
+            <p> {{ bb.items2 }} </p>
+            <p> {{ bb.char3 }} </p>
+            <p> {{ bb.items3 }} </p>
+            <p> {{ bb.char4 }} </p>
+            <p> {{ bb.items4 }} </p>
+            <p><a href="/builds/{{ bb.rubric.pk }}/">{{ bb.rubric.name }}</a></p>
+            <p>{{ bb.published }}</p>
+        </div>
+        {% endfor %}
+    </body>
+</html>
